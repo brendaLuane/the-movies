@@ -1,0 +1,30 @@
+<div class="person">
+    <div class="container">
+        <div *ngIf="peaples.results">
+            <p class="title mt-5 mb-5">Pessoas Populares</p>
+            <div class="session-card">
+                <div class="card"
+                    *ngFor="let item of peaples.results | paginate: { itemsPerPage: 20, currentPage: peaples.page, totalItems: peaples.total_results }; let i = index">
+                    <a (click)="openModal('modalApp', {id: item.id, type:'person', known_for:item.known_for})">
+                        <div class="card-image">
+                            <figure class="image is-235x235">
+                                <img src="{{item.profile_path ?  prePathImg + item.profile_path: pathNoImg }}">
+                            </figure>
+                        </div>
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <p class="title is-3">{{item.name}}</p>
+                                    <p class="subtitle is-6">@johnsmith</p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <pagination-controls *ngIf="peaples.results.length" class="my-pagination" (pageChange)="pageChanged($event)"
+                previousLabel="Anterior" nextLabel="Próximo">
+            </pagination-controls>
+        </div>
+    </div>
+</div>

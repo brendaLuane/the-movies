@@ -1,0 +1,17 @@
+<div #modalApp id="modalApp" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+        <section #modalAppCard class="modal-card-body">
+            <div class="content">
+                <ng-container
+                    *ngIf="data.type !='person' && data.type !='movie' && data.type !='tv' else multilpleActions">
+                    It's Not Done!
+                </ng-container>
+                <ng-template #multilpleActions>
+                    <app-pessoa-info *ngIf="data.type == 'person'" [data]="data"></app-pessoa-info>
+                </ng-template>
+            </div>
+        </section>
+    </div>
+    <button class="modal-close is-large" aria-label="close" (click)="close()"></button>
+</div>

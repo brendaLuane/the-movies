@@ -1,0 +1,32 @@
+<div class="pessoa-info">
+    <div *ngIf="person" class="pessoa-detalhes"
+        [style.background-image]="'url('+ (person.profile_path ? prePathImgBanner + person.profile_path : pathNoImg) +')'">
+        <div class="detalhe">
+            <div class="columns">
+                <div class="column poster">
+                    <figure class="image is-300x450">
+                        <img src="{{person.profile_path ?  prePathImgPoster + person.profile_path: pathNoImg }}">
+                    </figure>
+                </div>
+                <div class="column info">
+                    <p class="title is-2">{{person.name}}</p>
+                    <p *ngIf="person.biography" class="title is-4">Biografia</p>
+                    <p>{{person.biography}}</p>
+
+                    <div *ngIf="data.known_for && data.known_for.length" class="search-results">
+                        <p class="title is-4 mt-5 mb-5">Conhecido(a) por</p>
+                        <div class="session-card">
+                            <div class="mb-3" *ngFor="let item of data.known_for; let i = index">
+                                <figure class=" is-130x195">
+                                    <img src="{{item.poster_path ? prePathImgOutros + item.poster_path : pathNoImg }}">
+                                </figure>
+                                <p class="title is-5">{{item.name ? item.name : item.title ? item.title : ''}}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

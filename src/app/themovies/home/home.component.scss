@@ -1,0 +1,39 @@
+.home{
+    min-height: calc(100vh - 108px);
+}
+
+.session-search{
+    // background-image: linear-gradient(147deg, #000000 0%, #363636 74%);
+    height: 300px;
+    background-image: linear-gradient(to right, rgba(43,4,4, 0.8) 0%, rgba(3,37,65, 0) 100%), url("./../../../assets/pop.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .title, .subtitle{
+        color: white!important;    
+    }
+}
+
+.session-card{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+	grid-gap: 1em;
+}
+
+.is-235x235 {
+    width: 235!important;
+    height: 235!important;
+}
+
+.my-pagination ::ng-deep .ngx-pagination .current {
+    background: #363636;
+}
+
+.my-pagination ::ng-deep .ngx-pagination  {
+    margin-top: 1rem;
+    .pagination-previous, .pagination-next{
+        border: none;
+        padding-top: 0;
+    }
+}
+
